@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CalculatorServlet", value = "/calc")
+@WebServlet(name = "CalculatorServlet", value = "/_calc")
 public class CalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        getServletContext().getRequestDispatcher("/pages/calc.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/pages/_calc.jsp").forward(req, resp);
 
     }
 
@@ -48,11 +48,11 @@ req.setAttribute("type", req.getParameter("type"));
 
             default:
                 req.setAttribute("errorMessage", "Invalid operation type.");
-                req.getRequestDispatcher("/calc.jsp").forward(req, resp);
+                req.getRequestDispatcher("/_calc.jsp").forward(req, resp);
 
         }
         req.setAttribute("result", result);
-        req.getRequestDispatcher("/pages/calc.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/_calc.jsp").forward(req, resp);
 
 
     }
