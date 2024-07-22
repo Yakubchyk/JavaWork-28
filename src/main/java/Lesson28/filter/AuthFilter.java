@@ -9,10 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import javax.servlet.*;
 
-//
-//@WebFilter(servletNames = {"RegServlet", "LoginServlet"})
-//public class SecurityFilter extends HttpFilter {
-
 
 @WebFilter("/calc")
 public class AuthFilter extends HttpFilter {
@@ -29,13 +25,4 @@ public class AuthFilter extends HttpFilter {
         }
     }
 }
-
-//    @Override
-//    protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-//        if (req.getSession().getAttribute("user") == null) {
-//            chain.doFilter(req,res);
-//        } else {
-//            res.sendRedirect("/");
-//        }
-//    }
 
