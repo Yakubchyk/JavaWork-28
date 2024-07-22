@@ -9,33 +9,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/") //localhost:8080 onliner.by
+@WebServlet("/")  // localhost:8080
 public class HomeServlet extends HttpServlet {
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
 
-        List<String> list = new ArrayList<>();
-        list.add(name);
-        list.add(name);
-        list.add(name);
-        list.add(name);
-        list.add(name);
-        list.add(name);
 
-        boolean flag = Boolean.parseBoolean(req.getParameter("flag"));
 
-        req.setAttribute("flag", flag);
-        req.setAttribute("list", list);
-        req.setAttribute("myName", name);
-
+//        String name = req.getParameter("name");
+//        boolean flag = Boolean.parseBoolean(req.getParameter("flag"));
+//
+//        List<String> list = new ArrayList<>();
+//        list.add("Hello 1");
+//        list.add("Hello 2");
+//        list.add("Hello 3");
+//        list.add("Hello 4");
+//        list.add("Hello 5");
+//
+//        req.setAttribute("flag", flag);
+//
+//        req.setAttribute("list", list);
+//
+//        req.setAttribute("myName", name);
 
         getServletContext().getRequestDispatcher("/pages/home.jsp").forward(req, resp);
-
     }
 }
-
-
-
-
