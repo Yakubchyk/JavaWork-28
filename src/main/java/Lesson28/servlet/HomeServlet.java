@@ -16,11 +16,11 @@ public class HomeServlet extends HttpServlet {
 
         if (req.getSession().getAttribute("user") != null) {
             req.setAttribute("user", req.getSession().getAttribute("user"));
-            req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
 
 
         } else {
-            req.getRequestDispatcher("/pages/reg.jsp").forward(req, resp);
+            req.getRequestDispatcher("/reg.jsp").forward(req, resp);
         }
     }
 }

@@ -11,7 +11,7 @@ import javax.servlet.*;
 
 
 @WebFilter("/calc")
-public class AuthFilter extends HttpFilter {
+public class OutFilter extends HttpFilter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
@@ -19,7 +19,7 @@ public class AuthFilter extends HttpFilter {
         HttpServletResponse resp = (HttpServletResponse) response;
 
         if (req.getSession().getAttribute("user") == null) {
-            resp.sendRedirect(req.getContextPath() + "/pages/reg.jsp");
+            resp.sendRedirect(req.getContextPath() + "/");
         } else {
             chain.doFilter(request, response);
         }
