@@ -1,39 +1,36 @@
 package Lesson28.servlet;
 
+import Lesson28.model.User;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-@WebServlet("/")  // localhost:8080
+@WebServlet("/")
 public class HomeServlet extends HttpServlet {
-
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        if (req.getSession().getAttribute("user") != null) {
+            req.setAttribute("user", req.getSession().getAttribute("user"));
+            req.getRequestDispatcher("/pages/login.jsp").forward(req, resp);
 
 
-//        String name = req.getParameter("name");
-//        boolean flag = Boolean.parseBoolean(req.getParameter("flag"));
-//
-//        List<String> list = new ArrayList<>();
-//        list.add("Hello 1");
-//        list.add("Hello 2");
-//        list.add("Hello 3");
-//        list.add("Hello 4");
-//        list.add("Hello 5");
-//
-//        req.setAttribute("flag", flag);
-//
-//        req.setAttribute("list", list);
-//
-//        req.setAttribute("myName", name);
-
-        getServletContext().getRequestDispatcher("/pages/home.jsp").forward(req, resp);
+        } else {
+            req.getRequestDispatcher("/pages/reg.jsp").forward(req, resp);
+        }
     }
+
+    //    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        Optional<User> user = Optional.ofNullable((User) req.getSession().getAttribute("user"));
+//
+//        if (user.isPresent()) {
+//            getServletContext().getRequestDispatcher("/pages/calc.jsp").forward(req, resp);
+//        } else {
+//            resp.sendRedirect("/reg");
+//        }
+//    }
 }
