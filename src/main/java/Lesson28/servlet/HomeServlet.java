@@ -1,6 +1,7 @@
 package Lesson28.servlet;
 
 import Lesson28.model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,15 +23,4 @@ public class HomeServlet extends HttpServlet {
             req.getRequestDispatcher("/pages/reg.jsp").forward(req, resp);
         }
     }
-
-    //    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        Optional<User> user = Optional.ofNullable((User) req.getSession().getAttribute("user"));
-//
-//        if (user.isPresent()) {
-//            getServletContext().getRequestDispatcher("/pages/calc.jsp").forward(req, resp);
-//        } else {
-//            resp.sendRedirect("/reg");
-//        }
-//    }
 }
