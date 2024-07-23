@@ -20,7 +20,7 @@ public class HomeServlet extends HttpServlet {
 
 
         } else {
-            req.getRequestDispatcher("/reg.jsp").forward(req, resp);
+            req.getRequestDispatcher("/pages/reg.jsp").forward(req, resp);
         }
     }
 }
