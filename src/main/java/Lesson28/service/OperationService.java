@@ -1,8 +1,6 @@
 package Lesson28.service;
 
-
 import Lesson28.model.Operation;
-import Lesson28.storage.InMemoryResultStorage;
 
 public class OperationService {
 
@@ -27,15 +25,4 @@ public class OperationService {
             default -> throw new IllegalArgumentException("Operation type not supported");
         };
     }
-    }
-
-
-
-//    InMemoryResultStorage resultStorage = new InMemoryResultStorage();
-//
-//    public double process(Operation operation) {
-//        operation.execute();
-//        resultStorage.save(operation);
-//        return operation.getResult();
-//    }
-
+}

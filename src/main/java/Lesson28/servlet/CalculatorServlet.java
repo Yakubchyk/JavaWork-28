@@ -27,32 +27,12 @@ public class CalculatorServlet extends HttpServlet {
 
             Operation operation = new Operation(num1, num2, type);
 
+            Operation result = operationService.getResult(operation);
 
-            Operation executedOperation = operationService.getResult(operation);
-
-            req.setAttribute("operation", executedOperation);
+            req.setAttribute("operation", result);
 
             getServletContext().getRequestDispatcher("/pages/calc.jsp").forward(req, resp);
         }
     }
-//        double result = 0;
-//        switch (type) {
-//            case "sum":
-//                Operation sum = new SumOperation(num1, num2);
-//                result = sum.getResult();
-//                break;
-//            case "sub":
-//                Operation sub = new SubOperation(num1, num2);
-//                result = sub.getResult();
-//                break;
-//            case "mul":
-//                Operation mul = new MulOperation(num1, num2);
-//                result = mul.getResult();
-//                break;
-
-//            default:
-//                req.setAttribute("errorMessage", "Invalid operation type.");
-//                req.getRequestDispatcher("/pages/calc.jsp").forward(req, resp);
-
 
 
