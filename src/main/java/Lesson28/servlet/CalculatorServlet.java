@@ -29,7 +29,7 @@ public class CalculatorServlet extends HttpServlet {
 
             Operation result = operationService.getResult(operation);
 
-            req.setAttribute("operation", result);
+            req.setAttribute("result", result);
 
             getServletContext().getRequestDispatcher("/pages/calc.jsp").forward(req, resp);
         }

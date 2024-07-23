@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="alert alert-info mt-3" role="alert">
-                    <h3>Result: <span id="result">${operation.result}</span></h3>
+                    <h3>Result: <span id="result">${result.result}</span></h3>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
